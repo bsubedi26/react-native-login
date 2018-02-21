@@ -19,7 +19,6 @@ class Signup extends Component {
   handleSubmit = (values) => {
     const { email, password } = values
     const { dispatch } = this.props
-    const userService = app.service("users")
     
     return dispatch(AuthActions.signup({ email, password }))
     .then(data => {
@@ -29,15 +28,6 @@ class Signup extends Component {
     .catch(error => {
       return Promise.reject(error)
     })
-
-    // return userService.create({ email, password })
-    // .then(data => {
-    //   ToastAndroid.show("User Signup Success!", 2000)
-    //   return Promise.resolve({ data, route: "login" })
-    // })
-    // .catch(error => {
-    //   return Promise.reject(error)
-    // })
   }
 
   render() {
@@ -48,9 +38,7 @@ class Signup extends Component {
         <View marginB-50 center>
           <Text blue10 text20>{title}</Text>
         </View>
-
         <FormContainer signup handleSubmit={this.handleSubmit} />
-        
       </View>
     );
 
