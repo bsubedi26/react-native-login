@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { ToastAndroid, Platform, Alert } from 'react-native';
 import {
   View, 
@@ -9,8 +10,9 @@ import {
 import { Actions } from "react-native-router-flux";
 import app from "../util/feathers";
 import FormContainer from "../components/form/user";
+import AuthActions from "src/store/auth/action";
 
-export default class Login extends Component {
+class Login extends Component {
   state = {
     title: "Login Below"
   }
@@ -24,21 +26,22 @@ export default class Login extends Component {
 
   handleSubmit = (values) => {
     const { email, password } = values
+    const { dispatch } = this.props
     const credentials = { email, password, strategy: 'local' }
 
-    return app.authenticate(credentials)
-      .then(({ accessToken }) => {
-        console.log('accessToken: ', accessToken);
+    return dispatch(AuthActions.authenticate(credentials))
+      .then((data) => {
         ToastAndroid.show("User Login Success!", 2000)
-        app.passport.verifyJWT(accessToken)
-        .then(d => console.log(d))
-        return Promise.resolve({ data: accessToken, route: "home" })
+        return Promise.resolve({ data, route: "home" })
       })
       .catch(error => {
-        // console.log(error)
         return Promise.reject(error)
       })
   };
+
+  routeSignup = () => {
+    return Actions.signup()
+  }
 
   render() {
     const { title } = this.state
@@ -48,9 +51,11 @@ export default class Login extends Component {
         <View marginB-50 center>
           <Text blue10 text20>{title}</Text>
         </View>
-        <FormContainer handleSubmit={this.handleSubmit} />
+        <FormContainer login handleSubmit={this.handleSubmit} />
       </View>
     );
 
   }
 }
+
+export default connect(null)(Login)

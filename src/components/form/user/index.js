@@ -14,7 +14,7 @@ const FormContainer = withFormik({
     return props.handleSubmit(values)
       .then(({ data, route }) => { 
         setSubmitting(false);
-        if (Actions[route.toLowerCase()]) {
+        if (typeof route === "string" && Actions[route.toLowerCase()]) {
           return Actions[route.toLowerCase()]()
         }
       })

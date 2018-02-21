@@ -6,6 +6,7 @@ import {
   Text,
   TextInput,
 } from 'react-native-ui-lib';
+import { Actions } from "react-native-router-flux";
 
 const style = StyleSheet.create({
   textError: {
@@ -64,7 +65,7 @@ const renderError = (message) => (
 )
 // Our inner form component which receives our form's state and updater methods as props
 const FormFields = (props) => {
-  const { values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, title } = props;
+  const { values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, title, login, signup } = props;
 
   return (
     <View>
@@ -86,23 +87,24 @@ const FormFields = (props) => {
         </View>
 
         <View style={style.whiteSpace}></View>
-        <View marginT-25 left>
+        <View left>
           {isSubmitting
             ?
             <View  margin-10>
               <ActivityIndicator size={"large"} />
             </View>
             :
-            <TouchableOpacity onPress={handleSubmit} style={style.button}>
-              <Text style={style.buttonText}>Submit</Text>
-            </TouchableOpacity>
+            <View margin-10>
+              <TouchableOpacity onPress={handleSubmit} style={style.button}>
+                <Text style={style.buttonText}>Submit</Text>
+              </TouchableOpacity>
+              {login && <Text onPress={() => Actions.signup()} blue30 text85>Don't have an Account? Signup here.</Text>}
+              {signup && <Text onPress={() => Actions.login()} blue30 text85>Already have an Account? Login here.</Text>}
+            </View>
+            
           }
           
         </View>
-        {/* <button type="submit" className={btnClass} disabled={isSubmitting}>
-                  {isSubmitting ? <i className="p-1 fa fa-spinner fa-spin"></i> : null}
-                  Submit
-              </button> */}
 
       </View>
     </View>

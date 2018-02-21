@@ -9,6 +9,7 @@
   "dependencies": {
     "@feathersjs/client": "^3.4.2",
     "@shoutem/ui": "^0.23.4",
+    "feathers-redux": "^2.1.0",
     "formik": "^0.11.10",
     "react": "16.2.0",
     "react-native": "0.53.0",
@@ -21,6 +22,7 @@
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
+    "redux-promise-middleware": "^5.0.0",
     "redux-thunk": "^2.2.0",
     "socket.io-client": "^2.0.4",
     "styled-components": "^3.1.6"
