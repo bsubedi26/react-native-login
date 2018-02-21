@@ -7,7 +7,7 @@ import SideMenu from 'src/components/SideMenu';
 /**
  * ROOT ROUTES PAGES
  */
-import { Login, Register, Home } from "../pages";
+import { Login, Signup, Home } from "../pages";
 
 const options = {
   contentComponent: SideMenu,
@@ -19,7 +19,7 @@ const RootRoutes = () => (
   <Router>
     <Scene drawer={true} {...options} drawerIcon={drawerIcon()} key="root">
       <Scene initial key="login" component={Login} title="Login" />
-      <Scene key="register" component={Register} title="Register" />
+      <Scene key="signup" component={Signup} title="Signup" />
       <Scene key="home" component={Home} title="Home" />
     </Scene>
   </Router>

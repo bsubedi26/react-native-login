@@ -33,8 +33,8 @@ class SideMenu extends Component {
               <Text style={styles.navItemStyle} onPress={this.navigateToScreen('login')}>
                 Login
               </Text>
-              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('register')}>
-                Register
+              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('signup')}>
+                Signup
               </Text>
             </View>
           </View>

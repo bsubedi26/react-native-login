@@ -6,7 +6,7 @@ import io from 'socket.io-client';
 // import fRest from '@feathersjs/rest-client';
 
 const HOST = 'http://192.168.0.18:3030';
-const socketOptions = { transports: ['websocket'] };
+const socketOptions = { transports: ['websocket'], forceNew: true };
 const socket = io(HOST, socketOptions);
 // const restClient = fRest(HOST)
 
