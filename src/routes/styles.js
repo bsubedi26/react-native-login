@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
     paddingTop: 5
   },
   rightIcon: {
-    // paddingLeft: 10
-    margin: 20
+    paddingRight: 5,
+    paddingTop: 5
   }
 })
 

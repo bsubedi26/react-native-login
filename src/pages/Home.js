@@ -5,6 +5,7 @@ import {
   Alert,
   AsyncStorage,
   TouchableOpacity,
+  Image
 } from 'react-native';
 
 import {
@@ -41,7 +42,7 @@ class Home extends Component {
       <View marginT-20 center>
         <Text blue30 text60>ID: {auth.id}</Text>
         <Text blue30 text60>Email: {auth.email}</Text>
-        <TouchableOpacity style={style.button("lightcoral")} onPress={this.promptForLogout}>
+        <TouchableOpacity style={style.button("blanchedalmond")} onPress={this.promptForLogout}>
           <Text dark10 text60>Logout</Text>
         </TouchableOpacity>
       </View>
@@ -61,9 +62,9 @@ class Home extends Component {
         <View center>
           <Text blue30 text20>Welcome Home</Text>
           <Text black10 text40>Logged in? {auth.accessToken ? "True" : "False"}</Text>
-          <TouchableOpacity style={style.button("#bfbfbf")} onPress={this.logToken}>
+          {/* <TouchableOpacity style={style.button("#bfbfbf")} onPress={this.logToken}>
             <Text blue10 text60>Log Token</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
 
         {auth.accessToken ? this.renderAuthenticated() : null}

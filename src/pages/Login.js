@@ -8,7 +8,7 @@ import {
   Button
 } from 'react-native-ui-lib';
 import { Actions } from "react-native-router-flux";
-import app from "../util/feathers";
+import feathers from "../util/feathers";
 import FormContainer from "../components/form/user";
 import AuthActions from "src/store/auth/action";
 
@@ -24,31 +24,29 @@ class Login extends Component {
     // });
   }
 
-  handleSubmit = (values) => {
+  handleSubmit = async (values) => {
     const { email, password } = values
     const { dispatch } = this.props
     const credentials = { email, password, strategy: 'local' }
 
-    return dispatch(AuthActions.authenticate(credentials))
-      .then((data) => {
-        ToastAndroid.show("User Login Success!", 2000)
-        return Promise.resolve({ data, route: "home" })
-      })
-      .catch(error => {
-        return Promise.reject(error)
-      })
-  };
+    try {
+      const { accessToken } = await feathers.authenticate(credentials)
+      ToastAndroid.show("User Login Success!", 2000)
+      await dispatch(AuthActions.populateUser(accessToken))
+      return Promise.resolve({ data: accessToken, route: "home" })
+    }
+    catch (error) {
+      return Promise.reject(error)
+    }
 
-  routeSignup = () => {
-    return Actions.signup()
-  }
+  };
 
   render() {
     const { title } = this.state
 
     return (
       <View flex paddingH-25 paddingT-25>
-        <View marginB-50 center>
+        <View marginB-25 center>
           <Text blue10 text20>{title}</Text>
         </View>
         <FormContainer login handleSubmit={this.handleSubmit} />

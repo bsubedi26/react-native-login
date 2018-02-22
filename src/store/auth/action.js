@@ -10,20 +10,21 @@ const actions = {
   },
   authenticate(payload) {
     return (dispatch, getState) => {
-
       return dispatch({ type: types.AUTHENTICATE, payload: feathers.authenticate(payload) })
-        .then(response => {
-          dispatch({ type: types.VERIFY_JWT, payload: feathers.passport.verifyJWT(response.value.accessToken) });
-          return Promise.resolve(response)
-        })
-        .then(response => {
-          const { id } = getState().auth
-          dispatch({ type: types.USER_GET, payload: userService.get(id) })
-          return Promise.resolve(response)
-        })
-        .catch(error => {
-          return Promise.reject(error)
-        })
+    }
+  },
+
+  populateUser(accessToken) {
+    return async (dispatch, getState) => {
+      try {
+        dispatch(actions.setToken(accessToken))
+        const { value } = await dispatch({ type: types.VERIFY_JWT, payload: feathers.passport.verifyJWT(accessToken) })
+        await dispatch({ type: types.USER_GET, payload: userService.get(value.userId) })
+      }
+      catch (error) {
+        return Promise.reject(error)
+      }
+      
     }
   },
   logout() {
@@ -31,8 +32,15 @@ const actions = {
       dispatch({ type: types.RESET })
       return dispatch({ type: types.LOGOUT, payload: feathers.logout() })
     }
+  },
+
+  setToken(accessToken) {
+    return {
+      type: types.SET_ACCESS_TOKEN,
+      accessToken
+    }
   }
 }
 
 
-export default actions;
+export default actions

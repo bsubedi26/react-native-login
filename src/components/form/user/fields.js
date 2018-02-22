@@ -1,62 +1,12 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
-import Colors from 'src/themes/Colors';
+import { TouchableOpacity, ActivityIndicator } from 'react-native';
 import {
   View,
   Text,
   TextInput,
 } from 'react-native-ui-lib';
 import { Actions } from "react-native-router-flux";
-
-const style = StyleSheet.create({
-  textError: {
-    color: 'red'
-  },
-  label: {
-    fontSize: 18,
-    opacity: 0.5
-  },
-  formContainer: {
-    justifyContent: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 60,
-    backgroundColor: '#ffffff',
-  },
-  title: {
-    fontSize: 30,
-    alignSelf: 'center',
-    marginBottom: 30
-  },
-  buttonText: {
-    fontSize: 18,
-    color: 'white',
-    alignSelf: 'center'
-  },
-  button: {
-    height: 36,
-    backgroundColor: Colors.facebook,
-    borderRadius: 30,
-    marginBottom: 10,
-    padding: 22,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  },
-  borderAll: {
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    // height: 70
-  },
-  whiteSpace: {
-    padding: 10
-  },
-  whiteSpaceSm: {
-    padding: 5
-  }
-
-});
-
+import style from './style';
 
 const renderError = (message) => (
   <View marginB-50 center>
@@ -98,8 +48,10 @@ const FormFields = (props) => {
               <TouchableOpacity onPress={handleSubmit} style={style.button}>
                 <Text style={style.buttonText}>Submit</Text>
               </TouchableOpacity>
-              {login && <Text onPress={() => Actions.signup()} blue30 text85>Don't have an Account? Signup here.</Text>}
-              {signup && <Text onPress={() => Actions.login()} blue30 text85>Already have an Account? Login here.</Text>}
+              <View marginL-5 marginT-5>
+                {login && <Text onPress={() => Actions.signup()} blue30 text85>Don't have an Account? Signup here.</Text>}
+                {signup && <Text onPress={() => Actions.login()} blue30 text85>Already have an Account? Login here.</Text>}
+              </View>
             </View>
             
           }

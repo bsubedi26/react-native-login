@@ -4,6 +4,7 @@ const state = {
 
   accessToken: null,
   email: null,
+  avatar: null,
   id: null,
   decodedToken: {
     aud: null,

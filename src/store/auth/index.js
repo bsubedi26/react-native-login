@@ -43,14 +43,15 @@ export default function reducer(state = initialState, action) {
     case `${types.USER_GET}_FULFILLED`: {
       return {
         ...state,
-        email: payload.email
+        email: payload.email,
+        avatar: payload.avatar
       }
     }
 
-    case types.CURRENT_USER: {
+    case types.SET_ACCESS_TOKEN: {
       return {
         ...state,
-        email: payload
+        accessToken: action.accessToken
       }
     }
 

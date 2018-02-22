@@ -35,7 +35,7 @@ class Signup extends Component {
 
     return (
       <View flex paddingH-25 paddingT-25>
-        <View marginB-50 center>
+        <View marginB-25 center>
           <Text blue10 text20>{title}</Text>
         </View>
         <FormContainer signup handleSubmit={this.handleSubmit} />
