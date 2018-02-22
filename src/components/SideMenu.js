@@ -40,7 +40,7 @@ class SideMenu extends Component {
           </View>
         </ScrollView>
         <View style={styles.footerContainer}>
-          <Text>Foot Footer</Text>
+          <Text>Native Login</Text>
         </View>
       </View>
     );

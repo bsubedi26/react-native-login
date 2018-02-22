@@ -19,7 +19,7 @@ const FormContainer = withFormik({
       })
       .catch(error => {
         setSubmitting(false);
-        setErrors(error);
+        setErrors({ message: "The provided email already exists."});
       })
   },
 })
