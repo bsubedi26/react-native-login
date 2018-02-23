@@ -13,6 +13,10 @@ import FormContainer from "../components/form/user";
 import AuthActions from "src/store/auth/action";
 
 class Login extends Component {
+  static navigationOptions = {
+    title: 'Login',
+  }
+
   state = {
     title: "Login Below"
   }
@@ -33,7 +37,7 @@ class Login extends Component {
       const { accessToken } = await feathers.authenticate(credentials)
       ToastAndroid.show("User Login Success!", 2000)
       await dispatch(AuthActions.populateUser(accessToken))
-      return Promise.resolve({ data: accessToken, route: "home" })
+      return Promise.resolve({ data: accessToken, route: "Home" })
     }
     catch (error) {
       return Promise.reject(error)
@@ -43,13 +47,14 @@ class Login extends Component {
 
   render() {
     const { title } = this.state
+    const { navigation } = this.props
 
     return (
       <View flex paddingH-25 paddingT-25>
         <View marginB-25 center>
           <Text blue10 text20>{title}</Text>
         </View>
-        <FormContainer login handleSubmit={this.handleSubmit} />
+        <FormContainer navigation={navigation} login handleSubmit={this.handleSubmit} />
       </View>
     );
 

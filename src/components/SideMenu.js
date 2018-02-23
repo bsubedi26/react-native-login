@@ -6,9 +6,12 @@ import { Actions } from "react-native-router-flux";
 
 class SideMenu extends Component {
   navigateToScreen = (path) => () => {
-    if (Actions[path]) {
-      return Actions[path]()
-    } 
+    const { navigation } = this.props
+    return navigation.navigate(path)
+
+    // if (Actions[path]) {
+    //   return Actions[path]()
+    // }
   }
 
   render() {
@@ -20,7 +23,7 @@ class SideMenu extends Component {
               Public
             </Text>
             <View style={styles.navSectionStyle}>
-              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('home')}>
+              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Home')}>
                 Home
               </Text>
             </View>
@@ -30,10 +33,10 @@ class SideMenu extends Component {
               Account
             </Text>
             <View style={styles.navSectionStyle}>
-              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('login')}>
+              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Login')}>
                 Login
               </Text>
-              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('signup')}>
+              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Signup')}>
                 Signup
               </Text>
             </View>

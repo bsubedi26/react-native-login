@@ -12,6 +12,10 @@ import FormContainer from "../components/form/user";
 import AuthActions from "src/store/auth/action";
 
 class Signup extends Component {
+  static navigationOptions = {
+    title: 'Signup',
+  }
+
   state = {
     title: "Signup Below"
   }
@@ -23,7 +27,7 @@ class Signup extends Component {
     return dispatch(AuthActions.signup({ email, password }))
     .then(data => {
       ToastAndroid.show("User Signup Success!", 2000)
-      return Promise.resolve({ data, route: "login" })
+      return Promise.resolve({ data, route: "Login" })
     })
     .catch(error => {
       return Promise.reject(error)
@@ -32,13 +36,14 @@ class Signup extends Component {
 
   render() {
     const { title } = this.state
+    const { navigation } = this.props
 
     return (
       <View flex paddingH-25 paddingT-25>
         <View marginB-25 center>
           <Text blue10 text20>{title}</Text>
         </View>
-        <FormContainer signup handleSubmit={this.handleSubmit} />
+        <FormContainer signup navigation={navigation} handleSubmit={this.handleSubmit} />
       </View>
     );
 

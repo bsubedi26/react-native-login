@@ -12,8 +12,7 @@ const styles = StyleSheet.create({
     // paddingBottom: 10
   },
   leftIcon: {
-    paddingLeft: 5,
-    paddingTop: 5
+    paddingLeft: 16,
   },
   rightIcon: {
     paddingRight: 5,

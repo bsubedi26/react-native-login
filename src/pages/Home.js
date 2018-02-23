@@ -15,9 +15,22 @@ import {
   Button
 } from 'react-native-ui-lib';
 import AuthActions from "src/store/auth/action";
+import Avatar from "../components/Avatar";
 
 class Home extends Component {
-
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: 'Home',
+      headerRight: <Avatar navigation={navigation} />,
+      headerStyle: {
+        // backgroundColor: '#16a085',
+      },
+      headerTitleStyle: {
+        // color: 'white'
+      },
+    }
+  }
+ 
   promptForLogout = () => {
     Alert.alert('Confirm Logout', 'Are you sure you want to log out?',
       [

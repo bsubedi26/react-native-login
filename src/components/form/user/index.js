@@ -13,8 +13,10 @@ const FormContainer = withFormik({
     setSubmitting(true);
     return props.handleSubmit(values)
       .then(({ data, route }) => {
-        if (typeof route === "string" && Actions[route.toLowerCase()]) {
-          return Actions[route.toLowerCase()]()
+        const { navigation } = props;
+        
+        if (typeof route === "string" && navigation) {
+          return navigation.navigate(route);
         }
       })
       .catch(error => {
