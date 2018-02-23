@@ -25,7 +25,6 @@ class UserDetailScreen extends Component {
   render() {
     const { user } = this.props.navigation.state.params
     
-
     return (
       <View style={style.mapContainer}>
         <Image
