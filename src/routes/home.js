@@ -5,7 +5,7 @@ import { Home, Users, UserDetail } from "../pages";
 
 const homeTabOptions = {
   tabBarPosition: "bottom",
-  initialRouteName: "Users",
+  initialRouteName: "Home",
 }
 
 const userStackOptions = {

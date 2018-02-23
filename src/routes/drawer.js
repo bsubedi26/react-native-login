@@ -7,7 +7,7 @@ const drawerOptions = {
   contentComponent: SideMenu,
   drawerWidth: 256,
   drawerPosition: 'left',
-  initialRouteName: 'Home',
+  initialRouteName: 'Signup',
 };
 
 const DrawerNav = DrawerNavigator({
