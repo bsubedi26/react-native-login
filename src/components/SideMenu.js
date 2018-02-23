@@ -8,10 +8,6 @@ class SideMenu extends Component {
   navigateToScreen = (path) => () => {
     const { navigation } = this.props
     return navigation.navigate(path)
-
-    // if (Actions[path]) {
-    //   return Actions[path]()
-    // }
   }
 
   render() {

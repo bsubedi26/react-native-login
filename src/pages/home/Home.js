@@ -15,7 +15,7 @@ import {
   Button
 } from 'react-native-ui-lib';
 import AuthActions from "src/store/auth/action";
-import Avatar from "../components/Avatar";
+import Avatar from "src/components/Avatar";
 
 class Home extends Component {
   static navigationOptions = ({ navigation }) => {

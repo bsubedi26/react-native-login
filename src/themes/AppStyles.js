@@ -1,11 +1,27 @@
 import { Dimensions } from 'react-native'
-
 import Fonts from './Fonts'
 import Metrics from './Metrics'
 import Colors from './Colors'
 
 const AppStyles = {
+  /**
+   * NAVIGATION STYLES
+   */
   tabbarHeight: 49, // ios (from react-navigation)
+  headerStyle: {
+    height: 50,
+    // paddingTop: Constants.statusBarHeight,
+    // backgroundColor: 'deepskyblue',
+    // justifyContent: 'center',
+  },
+  leftIcon: {
+    paddingLeft: 16,
+  },
+  rightIcon: {
+    paddingRight: 5,
+    paddingTop: 5
+  },
+
   screen: {
     mainContainer: {
       flex: 1,
