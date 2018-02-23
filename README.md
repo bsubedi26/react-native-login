@@ -29,9 +29,23 @@ $ cd react-native-login/
 
 $ npm install
 
+$ cd react-native-login/server/
+
+$ npm install
+
 ```
 
-### 3. Simulate for Android
+### 3. Run Server
+
+```sh
+
+$ cd react-native-login/server/
+
+$ npm start
+
+```
+
+### 4. Simulate for Android
 
 *	Make sure you have an **Android emulator** installed and running.
 
