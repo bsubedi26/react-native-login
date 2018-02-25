@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import styles from './SideMenu.style';
 import { ScrollView, Text, View } from 'react-native';
-import { Actions } from "react-native-router-flux";
 
 class SideMenu extends Component {
   navigateToScreen = (path) => () => {

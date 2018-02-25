@@ -1,7 +1,7 @@
 import { Login, Signup, Home } from "../pages";
 import { DrawerNavigator } from 'react-navigation';
-import HomeTab from "./home";
 import SideMenu from 'src/components/SideMenu';
+// import HomeTab from "./home";
 
 const drawerOptions = {
   contentComponent: SideMenu,
@@ -13,7 +13,7 @@ const drawerOptions = {
 const DrawerNav = DrawerNavigator({
   Login: { screen: Login },
   Signup: { screen: Signup },
-  Home: { screen: HomeTab },
+  Home: { screen: Home },
 }, drawerOptions)
 
 // DrawerNav.navigationOptions = {

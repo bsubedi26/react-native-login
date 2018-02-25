@@ -1,7 +1,6 @@
 import { withFormik } from 'formik';
 import validate from './validate';
 import FormFields from './fields';
-import { Actions } from "react-native-router-flux";
 
 const FormContainer = withFormik({
   // Transform outer props into form values

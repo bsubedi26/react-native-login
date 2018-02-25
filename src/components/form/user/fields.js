@@ -5,7 +5,6 @@ import {
   Text,
   TextInput,
 } from 'react-native-ui-lib';
-import { Actions } from "react-native-router-flux";
 import style from './style';
 
 const renderError = (message) => (
@@ -15,7 +14,7 @@ const renderError = (message) => (
 )
 // Our inner form component which receives our form's state and updater methods as props
 const FormFields = (props) => {
-  const { values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, title, login, signup } = props;
+  const { values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, title, login, signup, navigation } = props;
 
   return (
     <View>
@@ -49,8 +48,8 @@ const FormFields = (props) => {
                 <Text style={style.buttonText}>Submit</Text>
               </TouchableOpacity>
               <View marginL-5 marginT-5>
-                {login && <Text onPress={() => Actions.signup()} blue30 text85>Don't have an Account? Signup here.</Text>}
-                {signup && <Text onPress={() => Actions.login()} blue30 text85>Already have an Account? Login here.</Text>}
+                {login && <Text onPress={() => navigation.navigate("Signup")} blue30 text85>Don't have an Account? Signup here.</Text>}
+                {signup && <Text onPress={() => navigation.navigate("Login")} blue30 text85>Already have an Account? Login here.</Text>}
               </View>
             </View>
             

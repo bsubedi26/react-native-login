@@ -7,7 +7,6 @@ import {
   TextInput, 
   Button
 } from 'react-native-ui-lib';
-import { Actions } from "react-native-router-flux";
 import feathers from "../util/feathers";
 import FormContainer from "../components/form/user";
 import AuthActions from "src/store/auth/action";
@@ -52,7 +51,7 @@ class Login extends Component {
     return (
       <View flex paddingH-25 paddingT-25>
         <View marginB-25 center>
-          <Text blue10 text20>{title}</Text>
+          <Text blue20 text30>{title}</Text>
         </View>
         <FormContainer navigation={navigation} login handleSubmit={this.handleSubmit} />
       </View>
